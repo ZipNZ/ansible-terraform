@@ -18,3 +18,6 @@ RUN apt-get update && apt-get --no-install-recommends install -y \
 
 RUN pip3 install --upgrade pip
 RUN pip3 install "ansible[azure]==2.9.3" "pywinrm>=0.4.1" "jmespath>=0.10.0"
+RUN ansible-galaxy collection install community.crypto
+RUN ansible-galaxy collection install community.general
+RUN ansible-galaxy collection install ansible.posix
