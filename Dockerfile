@@ -16,8 +16,12 @@ RUN apt-get update && apt-get --no-install-recommends install -y \
     python3-pip  && \
     rm -rf /var/lib/apt/lists/*
 
+COPY ./requirements-azure.txt ./
+
 RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements-azure.txt
 RUN pip3 install "ansible[azure]==2.9.3" "pywinrm>=0.4.1" "jmespath>=0.10.0"
+RUN ansible-galaxy collection install azure.azcollection
 RUN ansible-galaxy collection install community.crypto
 RUN ansible-galaxy collection install community.general
 RUN ansible-galaxy collection install ansible.posix
