@@ -13,5 +13,6 @@ Currently, this image is hosted on [Dockerhub](https://hub.docker.com/repository
 ## How to build image
 
 ```bash
-docker build .
+docker build . --build-arg "TERRAFORM_VERSION=0.14.3" -t zipnz/ansible-terraform:0.14.3
+docker build . --build-arg "TERRAFORM_VERSION=0.13.4" -t zipnz/ansible-terraform:0.13.4
 ```
